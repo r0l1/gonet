@@ -1,0 +1,32 @@
+resolver:
+  search: as65342.net dinonet.eu
+  nameservers:
+    - ::1
+
+networks:
+  - name: AS65342-HEGELSTATE-NET
+    address: 10.42.12.20/24
+    gateway: 10.42.12.1
+    address6: 2001:7b8:607:12::20/64
+    gateway6: 2001:7b8:607:12::1
+  - name: AS65342-WIEKSLAG-NET
+    address: 10.42.14.20/24
+    gateway: 10.42.14.1
+    address6: 2a02:58:db:c514::20/64
+    gateway6: 2a02:58:db:c514::1
+  - name: Unknown network
+    address: dhcp
+    address6: dhcp
+
+tunnels:
+  - network: Unknown network
+    name: as65342
+    address: 10.42.6.20/24
+    gateway: 10.42.6.1
+    address6: 2001:7b8:607:6::20/64
+    gateway6: 2001:7b8:607:6::1
+    routes:
+      - 0.0.0.0/1
+      - 128.0.0.0/1
+      - ::/1
+      - 8000::/1
